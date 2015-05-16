@@ -48,7 +48,7 @@ public class Player implements Serializable{
         hash = 47 * hash + (int) (Double.doubleToLongBits(this.bestTime) ^ (Double.doubleToLongBits(this.bestTime) >>> 32));
         return hash;
     }
-
+ 
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {

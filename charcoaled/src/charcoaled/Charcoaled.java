@@ -10,6 +10,10 @@ import byui.cit260.charcoaled.model.Game;
 import byui.cit260.charcoaled.model.Locations;
 import byui.cit260.charcoaled.model.Map;
 import byui.cit260.charcoaled.model.Player;
+import byui.cit260.charcoaled.model.CluesScene;
+import byui.cit260.charcoaled.model.PeopleScene;
+import byui.cit260.charcoaled.model.ResourceScene;
+import byui.cit260.charcoaled.model.Scene;
 
 /**
  *
@@ -40,6 +44,7 @@ public class Charcoaled {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
         
         
         // test Map class
@@ -74,6 +79,48 @@ public class Charcoaled {
         String locationsInfo = gameLocations.toString();
         System.out.println(locationsInfo);
         
+        //create instance for Scene
+        Scene sceneOne = new Scene();
+        
+        sceneOne.setDescription("description");
+        sceneOne.setTimeRemaining(2.00);
+        
+        //call system out function for Scene
+        String sceneInfo = sceneOne.toString(); 
+        System.out.println(sceneInfo);
+        
+        //create instance for ResourceScene
+        ResourceScene resourceSceneOne = new ResourceScene();
+        
+        
+        resourceSceneOne.setPlayerInventory("playerInventory");
+        resourceSceneOne.setResourceList("resourceList");
+        resourceSceneOne.setDescription("description");
+        
+        //call system out function for ResourceScene
+        String resourceSceneInfo = resourceSceneOne.toString();
+        System.out.println(resourceSceneInfo);
+        
+        //create instance for PeopleScene
+        PeopleScene peopleSceneOne = new PeopleScene();
+        
+        peopleSceneOne.setNoPeople(1);
+        peopleSceneOne.setChallenge("challenge");
+        peopleSceneOne.setDescription("description");
+        
+          //call system out function for PeopleScene
+        String peopleSceneInfo = peopleSceneOne.toString();
+        System.out.println(peopleSceneInfo);
+        
+        //create instance for CluesScene
+        CluesScene cluesSceneOne = new CluesScene();
+        
+        cluesSceneOne.setDescription("description");
+        cluesSceneOne.setCluesQuestion("cluesQuestion");
+        
+          //call system out function for CluesScene
+        String cluesSceneOneInfo = cluesSceneOne.toString();
+        System.out.println(cluesSceneOneInfo);
     }
     
 }
