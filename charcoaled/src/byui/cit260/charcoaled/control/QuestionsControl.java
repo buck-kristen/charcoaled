@@ -22,7 +22,7 @@ public class QuestionsControl {
         if (fahrenheit < 100 || fahrenheit > 1500) { //testing for invalids
             return -1;        
         }
-           // fahrenheit = f; how to reassign variable name?? Change code when I find out
+         
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius
             return degreesCelsius;
             
