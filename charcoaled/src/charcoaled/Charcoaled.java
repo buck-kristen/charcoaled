@@ -14,6 +14,7 @@ import byui.cit260.charcoaled.model.CluesScene;
 import byui.cit260.charcoaled.model.PeopleScene;
 import byui.cit260.charcoaled.model.ResourceScene;
 import byui.cit260.charcoaled.model.Scene;
+import byui.cit260.charcoaled.view.StartProgramView;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Charcoaled {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        /** REMOVE IF NOT NEEDED 06/04/15
         // test Game class
         Game gameCharcoaled = new Game();
         
@@ -121,6 +122,16 @@ public class Charcoaled {
           //call system out function for CluesScene
         String cluesSceneOneInfo = cluesSceneOne.toString();
         System.out.println(cluesSceneOneInfo);
+        * 
+        * */
+    //create StartProgramView and start program
+        StartProgramView startProgramView = new StartProgramView ();
+        startProgramView.startProgram(); 
+        
+    //create function for getPlayersName 
+        StartProgramView playersName = new StartProgramView ();
+        playersName.getPlayersName();
     }
+    
     
 }
