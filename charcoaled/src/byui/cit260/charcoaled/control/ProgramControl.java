@@ -5,10 +5,28 @@
  */
 package byui.cit260.charcoaled.control;
 
+import byui.cit260.charcoaled.model.Player;
+import charcoaled.Charcoaled;
+
 /**
  *
  * @author justdance2007
  */
 public class ProgramControl {
+
+    public static Player createPlayer(String playersName) {
+        if (playersName == null) {
+            return null;
+        }
+        Player player = new Player();
+        player.setName(playersName);
+        
+        Charcoaled.setPlayer(player); //save player in Charcoaled class
+        return player;
+        
+        //System.out.println("\n*** createPlayer function called ***");
+        //return null;
+    }
     
 }
+

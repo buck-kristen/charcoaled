@@ -5,6 +5,8 @@
  */
 package byui.cit260.charcoaled.view;
 
+import byui.cit260.charcoaled.control.ProgramControl;
+import byui.cit260.charcoaled.model.Player;
 import java.util.Scanner;
 
 /**
@@ -21,9 +23,9 @@ public class StartProgramView {
         //Prompt the user to enter name and retrieve name of player
         String playersName = this.getPlayersName ();
         //Create and save player object
-        
+        Player player = ProgramControl.createPlayer(playersName); 
         //Display a personalized welcome message
-        
+        this.displayWelcomeMessage(player);
         //display main menu
         
     }
@@ -60,14 +62,20 @@ public class StartProgramView {
            //invalid if user enters less than two characters 
            if (playersName.length ()< 1) {
                System.out.println("Invalid name- must enter a name.");
-               continue;
-              
+               continue;  
            }
            break;
        }
        //return name
        return playersName;
        }
+
+    public void displayWelcomeMessage(Player player) {
+        System.out.println("\n\n==============================================");
+        System.out.println("\tWelcome to Charcoaled " + player.getName());
+        System.out.println("\nEnjoy your rescue assignments!");
+        System.out.println("==============================================");
+    }
        
        
     }
