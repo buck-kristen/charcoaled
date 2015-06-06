@@ -33,16 +33,16 @@ public class StartProgramView {
 
     public void displayBanner() {
         System.out.println("\n\n*************************************************************");
-        System.out.println("\n* This is a game where you get to be a fireman and *"
-                +"\n* respond to an emergency located in a large apartment complex. *"
-                +"\n* You are required to save the people or pets in the building *"
-                +"\n* before it burns down. There will be several rooms on each floor *"
-                +"\n* and you have to use detective work to figure out what rooms the *"
-                +"\n* people are in. *");
-        System.out.println("\n\n* You will be required to overcome a number of obstacles *"
-                +"\n* by solving calculations of problems, or answering questions in order *"
-                +"\n* to unlock, resuscitate an unconscious person or to figure out if a *"
-                +"\n* room is too hot to enter. *");
+        System.out.println("\n* This is a game where you get to be a fireman and *"+
+                "\n* respond to an emergency located in a large apartment complex. *"+
+                "\n* You are required to save the people or pets in the building *"+
+                "\n* before it burns down. There will be several rooms on each floor *"+
+                "\n* and you have to use detective work to figure out what rooms the *"+
+                "\n* people are in. *");
+        System.out.println("\n\n* You will be required to overcome a number of obstacles *"+
+                "\n* by solving calculations of problems, or answering questions in order *"+
+                "\n* to unlock, resuscitate an unconscious person or to figure out if a *"+
+                "\n* room is too hot to enter. *");
         System.out.println("\n\n* Enjoy the game! *");
         System.out.println("\n\n*************************************************************");
         

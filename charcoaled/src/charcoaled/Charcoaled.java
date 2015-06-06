@@ -130,9 +130,9 @@ public class Charcoaled {
         StartProgramView startProgramView = new StartProgramView ();
         startProgramView.startProgram(); 
         
-    //create function for getPlayersName 
-        StartProgramView playersName = new StartProgramView ();
-        playersName.getPlayersName();
+    //create function for getPlayersName; I removed this because it was repeating the name twice when running project
+     //   StartProgramView playersName = new StartProgramView ();
+       // playersName.getPlayersName();
     }
 
     public static Game getCurrentGame() {

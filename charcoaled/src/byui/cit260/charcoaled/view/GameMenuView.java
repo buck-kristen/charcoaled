@@ -10,5 +10,9 @@ package byui.cit260.charcoaled.view;
  * @author justdance2007
  */
 public class GameMenuView {
+
+    void displayMenu() {
+        System.out.println("\n*** displayMenu sub function called***");
+    }
     
 }

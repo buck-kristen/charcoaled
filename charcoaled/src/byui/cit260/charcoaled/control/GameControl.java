@@ -5,10 +5,16 @@
  */
 package byui.cit260.charcoaled.control;
 
+import byui.cit260.charcoaled.model.Player;
+
 /**
  *
  * @author justdance2007
  */
 public class GameControl {
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame function called***");
+    }
     
 }
