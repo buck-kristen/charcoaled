@@ -11,8 +11,8 @@ package byui.cit260.charcoaled.view;
  */
 public class GameMenuView {
 
-    void displayMenu() {
-        System.out.println("\n*** displayMenu sub function called***");
+    public void displayMenu() {
+        System.out.println("\n*** displayMenu sub function called in gameMenuViewClass***");
     }
     
 }
