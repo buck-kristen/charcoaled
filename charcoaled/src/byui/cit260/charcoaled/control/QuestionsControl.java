@@ -18,14 +18,16 @@ public class QuestionsControl {
             double volume = (4.0/3.0) * Math.PI * Math.pow(radius, 3);
             return volume;
         }
-    public double convertTemperature(double fahrenheit) { //Kristen function signature
+    public static double convertTemperature(double fahrenheit) { //Kristen function signature
         if (fahrenheit < 100 || fahrenheit > 1500) { //testing for invalids
+            System.out.println("Invalid- Number must be entered between 100 and 1500.");
             return -1;        
         }
-         
+        else {                  
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius
+            System.out.println("The temperature in Celsius is: " + degreesCelsius);
             return degreesCelsius;
-            
+        }
             
     }
 }
