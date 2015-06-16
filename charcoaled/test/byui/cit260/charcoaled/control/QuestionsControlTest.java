@@ -25,7 +25,7 @@ public class QuestionsControlTest {
     public void testSphereVolume() {
         System.out.println("sphereVolume");
     /**********************************
-     * Test Case #1
+     * Test Case #1; valid entry
      *********************************/
         System.out.println("\tTest case #1");
         
@@ -42,7 +42,7 @@ public class QuestionsControlTest {
         
         
         /**********************************
-     * Test Case #2
+     * Test Case #2; invalid entry 
      *********************************/
         System.out.println("\tTest case #2");
         
@@ -58,7 +58,7 @@ public class QuestionsControlTest {
       
         
            /**********************************
-     * Test Case #3
+     * Test Case #3; invalid entry 
      *********************************/
         System.out.println("\tTest case #3");
         
@@ -74,7 +74,7 @@ public class QuestionsControlTest {
      
         
            /**********************************
-     * Test Case #4
+     * Test Case #4; boundary - low
      *********************************/
         System.out.println("\tTest case #4");
         
@@ -90,7 +90,7 @@ public class QuestionsControlTest {
       
         
            /**********************************
-     * Test Case #5
+     * Test Case #5 boundary - high
      *********************************/
         System.out.println("\tTest case #5");
         
@@ -114,13 +114,12 @@ public class QuestionsControlTest {
         System.out.println("convertTemperature");
         
      /**********************************
-     * Test Case #1
+     * Test Case #1; invalid entry
      *********************************/
         System.out.println("\tTest Case #1");
         //input parameter for test case 1
         double fahrenheit = 1000.0;
         //create instance of QuestionsControl class
-        //do I need to have this again?
         QuestionsControl instance = new QuestionsControl();
          //expected result
         double expResult = 537.777777778;
