@@ -14,9 +14,12 @@ import java.util.Scanner;
  *
  * @author justdance2007
  */
-public class MainMenuView {
+public class MainMenuView extends View{
     //first menu that appears to user
-    private final String MENU = "\n"+
+    //added because it's on the wk8 tutorial pg 12
+    public MainMenuView() {
+    //private final String MENU = //deleted for step 7 p.10
+            super("\n"+  //calling constructor in super class
             "\n----------------------"+
             "\n|Main Menu             |"+
             "\n----------------------"+
@@ -25,7 +28,8 @@ public class MainMenuView {
             "\nH - Help"+
             "\nS - Save Game"+
             "\nE - Exit"+
-            "\n----------------------";
+            "\n----------------------");
+    }
     //menu appears if user types "H" from main menu
     private final String HELPMENU = "\n"+
             "\n----------------------"+
@@ -52,6 +56,7 @@ public class MainMenuView {
             "\nX - Exit to Main Menu"+
             "\n--------------------------------------";
     //displays the main menu and gets user input keys typed
+    /* DELETED FOR TEAM ASSIGNMENT PAGE 11 STEP 7
     public void displayMenu() {
         char selection = ' ';
         do {
@@ -88,10 +93,13 @@ public class MainMenuView {
        //return name
        return menuItem;
 }
-
+*/
     //responds to user input entered from main menu
-    public void doAction(char selection)
+    @Override
+    //public void doAction(char selection) old statement before next change
+    public void doAction (Object obj)
     {
+        Character selection = (Character) obj; //casting or type cast
         switch (selection) {
         case 'N': //Start new game
             this.startNewGame();

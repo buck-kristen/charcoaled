@@ -28,7 +28,7 @@ public class StartProgramView {
         this.displayWelcomeMessage(player);
         //display main menu
         MainMenuView mainmenu = new MainMenuView();
-        mainmenu.displayMenu();
+        mainmenu.display(); //changed to display() from displayMenu()
         
     }
 

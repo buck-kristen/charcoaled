@@ -27,7 +27,7 @@ public class MainMenuViewTest {
         MainMenuView instance = new MainMenuView();
         String data = "N";
         System.setIn(new ByteArrayInputStream(data.getBytes()));
-        instance.displayMenu();
+        instance.display();
         // TODO review the generated test code and remove the default call to fail.
         System.out.println("The test case is a prototype of displayMenu.");
     }
