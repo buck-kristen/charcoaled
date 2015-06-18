@@ -27,7 +27,21 @@ public class QuestionsControl {
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius
             System.out.println("The temperature in Celsius is: " + degreesCelsius);
             return degreesCelsius;
+        }       
+    }
+    
+    public double triangleArea (double base, double height) { // fx signature for calculating the area of a triangle
+        if (base < 0 || base > 50) { // test for invalid values. is base negative or out of range?
+            return -1;
         }
             
-    }
+        if (height < 0 || height > 50) { // test for invalid values. is height negative or out of range?
+            return -1;
+        }
+        
+        double areaOfTriangle = (base * height) / 2; // calculate area of triangle (when base & height are known)
+            
+        return areaOfTriangle;
+    }  
+    
 }
