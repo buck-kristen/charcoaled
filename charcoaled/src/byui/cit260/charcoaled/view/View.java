@@ -14,11 +14,13 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     private String promptMessage;
+    private String menuOptions;
     
     public abstract void doAction(Object obj);
      
-    public View(String promptMessage) {
+    public View(String promptMessage, String menuOptions) {
                 this.promptMessage = promptMessage; 
+                this.menuOptions = menuOptions;
             }       
     public String getPromptMessage() {
         return promptMessage; 
@@ -58,7 +60,7 @@ public abstract class View implements ViewInterface {
          menuItem = menuItem.trim();
          menuItem = menuItem.toUpperCase();
          //invalid if user enters  
-           if (!"NLHSE".contains(menuItem.toUpperCase())) {
+           if (!menuOptions.contains(menuItem.toUpperCase())) {
                System.out.println("Invalid menu option.");
                continue;  
            }

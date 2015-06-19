@@ -28,7 +28,7 @@ public class MainMenuView extends View{
             "\nH - Help"+
             "\nS - Save Game"+
             "\nE - Exit"+
-            "\n----------------------");
+            "\n----------------------","NLHSE");
     }
     //menu appears if user types "H" from main menu
     private final String HELPMENU = "\n"+
@@ -228,7 +228,11 @@ public class MainMenuView extends View{
                double fahrenheit = getFahrenheitInput ();  //assign variable fahrenheit to value user entered
                returnValue = QuestionsControl.convertTemperature(fahrenheit); //assign returnValue variable to be checked in convertTemp() function
             } while (returnValue == -1); //check if returnValue is equal to return in convTemp function of -1- if so then invalid
-        }
+         //display room menu
+        RoomMenuView roomMenu = new RoomMenuView();
+        roomMenu.display();
+         }
+         
          private void viewItems () {
             System.out.println("viewItems function called");
         }
