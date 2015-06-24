@@ -13,7 +13,8 @@ import java.util.Objects;
  * @author justdance2007
  */
 public class PeopleScene implements Serializable {
-    //class instance variables
+
+    private Scene scene; 
     private Integer noPeople;
     private String challenge;
     private String description;
@@ -24,7 +25,14 @@ public class PeopleScene implements Serializable {
     
     
      //create getter and setter functions
+    public Scene getScene() {
+        return scene;
+    }
 
+    //class instance variables
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
     public Integer getNoPeople() {
         return noPeople;
     }

@@ -13,7 +13,8 @@ import java.util.Objects;
  * @author justdance2007
  */
 public class ResourceScene implements Serializable {
-    //class instance variables
+
+    private Scene scene; 
     private String playerInventory;
     private String resourceList;
     private String description;
@@ -23,7 +24,14 @@ public class ResourceScene implements Serializable {
     
     
      //create getter and setter functions
+    public Scene getScene() {
+        return scene;
+    }
 
+    //class instance variables
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
     public String getPlayerInventory() {
         return playerInventory;
     }

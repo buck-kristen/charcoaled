@@ -13,13 +13,31 @@ import java.util.Objects;
  * @author Family
  */
 public class Player implements Serializable{
-    // class instance variables
+
+    private Game[] startGame;
+    private Actor actor; 
     private String name;
     private double bestTime;
 
     public Player() {
     }
-    
+    //getter setter functions
+        public Game[] getStartGame() {
+        return startGame;
+    }
+
+    public void setStartGame(Game[] startGame) {
+        this.startGame = startGame;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    // class instance variables
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
     public String getName() {
         return name;
     }

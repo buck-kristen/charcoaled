@@ -12,15 +12,41 @@ import java.io.Serializable;
  * @author Keller Z570 Laptop
  */
 public class Game implements Serializable {
-    
-    // class instance variables
+   
+    private Player player; //
+    private Actor[] actors;
+    private Map[] gameMap;
     private double totalTime;
     
     // default constructor function
     public Game() {
     }
     
-    
+    //getter setter functions
+        public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Actor[] getActors() {
+        return actors;
+    }
+
+    public void setActors(Actor[] actors) {
+        this.actors = actors;
+    }
+
+    public Map[] getGameMap() {
+        return gameMap;
+    }
+
+    // class instance variables
+    public void setGameMap(Map[] gameMap) {
+        this.gameMap = gameMap;
+    }
     public double getTotalTime() {
         return totalTime;
     }

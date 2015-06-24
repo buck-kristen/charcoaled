@@ -13,7 +13,10 @@ import java.util.Objects;
  * @author justdance2007
  */
 public class Scene implements Serializable {
-    //class instance variables
+
+    private CluesScene clues; 
+    private ResourceScene resource;
+    private PeopleScene people; 
     private String description;
     private double timeRemaining;
 
@@ -22,6 +25,30 @@ public class Scene implements Serializable {
     
     
     //create getter and setter functions
+        public CluesScene getClues() {
+        return clues;
+    }
+
+    public void setClues(CluesScene clues) {
+        this.clues = clues;
+    }
+
+    public ResourceScene getResource() {
+        return resource;
+    }
+
+    public void setResource(ResourceScene resource) {
+        this.resource = resource;
+    }
+
+    public PeopleScene getPeople() {
+        return people;
+    }
+
+    //class instance variables
+    public void setPeople(PeopleScene people) {
+        this.people = people;
+    }
     public String getDescription() {
         return description;
     }

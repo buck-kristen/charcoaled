@@ -5,6 +5,7 @@
  */
 package byui.cit260.charcoaled.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,38 +13,64 @@ import java.util.Objects;
  *
  * @author Keller Z570 Laptop
  */
-public class Actor implements Serializable {
+public enum Actor implements Serializable { //removed class inserted enum p3 of pdf wk 9
     
-    // class instance variables
-    private String name;
-    private String coordinates;
+    Jake("Firefighter man coming to the rescue");
+
+    private Game game;
+    private Locations location; //on my map it shows 0..1 not just 1 so not sure if this is correct?
+   // private String name; DELETE p3 
+    private final String description;
+    private final Point coordinates; //added final p.4
 
     // default constructor function
-    public Actor() {
-    }
+     Actor(String description) {
+        this.description = description;
+        coordinates = new Point (1,1);
+}
+   
 
         
-    public String getName() {
+    /*public String getName() {
         return name;
-    }
+    } 
 
     public void setName(String name) {
         this.name = name;
+    } DELETE p3 */
+     
+    public Game getGame() {
+        return game;
     }
 
-    public String getCoordinates() {
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Locations getLocation() {
+        return location;
+    }
+
+    // class instance variables
+    public void setLocation(Locations location) {
+        this.location = location;
+    }
+    public String getDescription() {
+        return description; 
+    }
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(String coordinates) {
+    /*public void setCoordinates(String coordinates) {
         this.coordinates = coordinates;
-    }
+    } DELETE p4*/
 
-    @Override
+   /* @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", coordinates=" + coordinates + '}';
-    }
-
+        return "Actor{" + "name=" + name +  ", coordinates=" + coordinates + '}';
+    }  NOT SURE IF I NEED THIS */
+/*
     @Override
     public int hashCode() {
         int hash = 7;
@@ -69,5 +96,5 @@ public class Actor implements Serializable {
         }
         return true;
     }
-        
+     DELETE p5*/   
 }

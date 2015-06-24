@@ -14,7 +14,9 @@ import java.util.Objects;
  */
 public class Locations implements Serializable {
     
-    // class instance variables
+    private Map gameMap;
+    private Actor actor;
+    private Scene scene;
     private String row;
     private String column;
     private boolean visited;
@@ -24,7 +26,31 @@ public class Locations implements Serializable {
     public Locations() {
     }
         
-    
+    //getter setter functions
+        public Map getGameMap() {
+        return gameMap;
+    }
+
+    public void setGameMap(Map gameMap) {
+        this.gameMap = gameMap;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    // class instance variables
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
     public String getRow() {
         return row;
     }
