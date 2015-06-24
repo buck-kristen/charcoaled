@@ -16,7 +16,6 @@ public class Actor implements Serializable {
     
     // class instance variables
     private String name;
-    private String gender;
     private String coordinates;
 
     // default constructor function
@@ -32,14 +31,6 @@ public class Actor implements Serializable {
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getCoordinates() {
         return coordinates;
     }
@@ -50,14 +41,13 @@ public class Actor implements Serializable {
 
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", gender=" + gender + ", coordinates=" + coordinates + '}';
+        return "Actor{" + "name=" + name + ", coordinates=" + coordinates + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 31 * hash + Objects.hashCode(this.name);
-        hash = 31 * hash + Objects.hashCode(this.gender);
         hash = 31 * hash + Objects.hashCode(this.coordinates);
         return hash;
     }
@@ -72,9 +62,6 @@ public class Actor implements Serializable {
         }
         final Actor other = (Actor) obj;
         if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.gender, other.gender)) {
             return false;
         }
         if (!Objects.equals(this.coordinates, other.coordinates)) {
