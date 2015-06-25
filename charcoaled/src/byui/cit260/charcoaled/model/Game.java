@@ -13,10 +13,10 @@ import java.io.Serializable;
  */
 public class Game implements Serializable {
    
-    private Player player; //
+    private Player player; //create new player object in GameControl
     private Actor[] actors;
-    private Map[] gameMap;
-    private double totalTime;
+    private Map gameMap;
+    //private double totalTime;//should I include this since I don't want to use time in the game?
     
     // default constructor function
     public Game() {
@@ -39,33 +39,22 @@ public class Game implements Serializable {
         this.actors = actors;
     }
 
-    public Map[] getGameMap() {
+    public Map getGameMap() {
         return gameMap;
     }
 
     // class instance variables
-    public void setGameMap(Map[] gameMap) {
+    public void setGameMap(Map gameMap) {
         this.gameMap = gameMap;
     }
-    public double getTotalTime() {
-        return totalTime;
-    }
 
-    public void setTotalTime(double totalTime) {
-        this.totalTime = totalTime;
-    }
+
 
     @Override
     public String toString() {
-        return "Game{" + "totalTime=" + totalTime + '}';
+        return "Game";
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + (int) (Double.doubleToLongBits(this.totalTime) ^ (Double.doubleToLongBits(this.totalTime) >>> 32));
-        return hash;
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -76,9 +65,6 @@ public class Game implements Serializable {
             return false;
         }
         final Game other = (Game) obj;
-        if (Double.doubleToLongBits(this.totalTime) != Double.doubleToLongBits(other.totalTime)) {
-            return false;
-        }
         return true;
     }
         

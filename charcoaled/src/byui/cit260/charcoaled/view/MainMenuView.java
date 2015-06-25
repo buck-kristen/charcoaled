@@ -7,6 +7,8 @@ package byui.cit260.charcoaled.view;
 
 import byui.cit260.charcoaled.control.GameControl;
 import byui.cit260.charcoaled.control.QuestionsControl;
+import byui.cit260.charcoaled.model.Location;
+import byui.cit260.charcoaled.model.Map;
 import charcoaled.Charcoaled;
 import java.util.Scanner;
 
@@ -123,13 +125,13 @@ public class MainMenuView extends View{
     
     //create stub functions for doAction() main menu selections
         private void startNewGame () {
-    /*        //System.out.println("startNewGame function called");
+            //System.out.println("startNewGame function called");
             //create new game
             GameControl.createNewGame(Charcoaled.getPlayer());
             //display game menu
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.displayMenu();
-    */
+    
     //I commented the above code because I wasn't sure when I needed to use create new game and 
     //if that would interfere with my game map menu
             //display the game map menu
@@ -140,12 +142,33 @@ public class MainMenuView extends View{
     public void displayGameMap() {
         char selection = ' ';
         do {
+            this.displayMap();
             System.out.println(GAMEMAPMENU);//Display Game map menu
             
             String mapInput = this.getMapInput(); //get user's selection for Game map menu
             selection = mapInput.charAt(0); //get first character of string
             this.doMapAction(selection); //do action based on game map selection
         } while (selection != 'X'); //and selection is not X
+    }
+    public void displayMap() {
+        Map gameMap = Charcoaled.getCurrentGame().getGameMap();//get Game map by retrieving current game
+        Location[][] locations = gameMap.getLocations();//get locations inside map
+        System.out.println("Map\n");
+        System.out.println("  | 0 | 1 | 2 | 3 | 4 |");
+            for (int r = 0; r < 5; r++) {
+                System.out.print(Integer.toString(r) + " |");
+                for (int c = 0; c < 5; c++) {
+                    if (locations[r][c].isVisited() == false) {
+                       System.out.print("?? |");
+                    } 
+                    else {
+                       System.out.print(locations[r][c].getScene().getSymbol() + "|");
+                    }
+                }
+                System.out.println("");
+            }
+            
+        
     }
     
     //get user input for Game map menu and check if invalid option entered 

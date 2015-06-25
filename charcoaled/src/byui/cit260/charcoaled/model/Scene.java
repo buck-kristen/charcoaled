@@ -18,6 +18,9 @@ public class Scene implements Serializable {
     private ResourceScene resource;
     private PeopleScene people; 
     private String description;
+    private String symbol; 
+
+ 
     private double timeRemaining;
 
     public Scene() {
@@ -25,6 +28,14 @@ public class Scene implements Serializable {
     
     
     //create getter and setter functions
+    
+       public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
         public CluesScene getClues() {
         return clues;
     }

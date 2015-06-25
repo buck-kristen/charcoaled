@@ -14,8 +14,8 @@ import java.util.Objects;
  */
 public class Map implements Serializable {
     
-    private Game game;
-    private Locations[] location; 
+    //private Game game;
+    private Location[][] locations; 
     private String row;
     private String column;
 
@@ -23,21 +23,21 @@ public class Map implements Serializable {
     public Map() {
     }
     
-        public Game getGame() {
+    /*    public Game getGame() {
         return game;
     }
 
     public void setGame(Game game) {
         this.game = game;
-    }
+    }*/
 
-    public Locations[] getLocation() {
-        return location;
+    public Location[][] getLocations() {
+        return locations;
     }
 
     // class instance variables
-    public void setLocation(Locations[] location) {
-        this.location = location;
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
     }
     public String getRow() {
         return row;

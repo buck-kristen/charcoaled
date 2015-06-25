@@ -7,7 +7,7 @@ package charcoaled;
 
 import byui.cit260.charcoaled.model.Actor;
 import byui.cit260.charcoaled.model.Game;
-import byui.cit260.charcoaled.model.Locations;
+import byui.cit260.charcoaled.model.Location;
 import byui.cit260.charcoaled.model.Map;
 import byui.cit260.charcoaled.model.Player;
 import byui.cit260.charcoaled.model.CluesScene;

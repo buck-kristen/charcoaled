@@ -12,28 +12,20 @@ import java.util.Objects;
  *
  * @author Keller Z570 Laptop
  */
-public class Locations implements Serializable {
+public class Location implements Serializable {
     
-    private Map gameMap;
     private Actor actor;
     private Scene scene;
     private String row;
     private String column;
     private boolean visited;
-    private double timeRemaining;
+
 
     // default constructor function
-    public Locations() {
+    public Location() {
     }
         
     //getter setter functions
-        public Map getGameMap() {
-        return gameMap;
-    }
-
-    public void setGameMap(Map gameMap) {
-        this.gameMap = gameMap;
-    }
 
     public Actor getActor() {
         return actor;
@@ -75,27 +67,9 @@ public class Locations implements Serializable {
         this.visited = visited;
     }
 
-    public double getTimeRemaining() {
-        return timeRemaining;
-    }
-
-    public void setTimeRemaining(double timeRemaining) {
-        this.timeRemaining = timeRemaining;
-    }
-
     @Override
     public String toString() {
-        return "Locations{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", timeRemaining=" + timeRemaining + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.row);
-        hash = 97 * hash + Objects.hashCode(this.column);
-        hash = 97 * hash + (this.visited ? 1 : 0);
-        hash = 97 * hash + (int) (Double.doubleToLongBits(this.timeRemaining) ^ (Double.doubleToLongBits(this.timeRemaining) >>> 32));
-        return hash;
+        return "Locations{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
 
     @Override
@@ -106,7 +80,7 @@ public class Locations implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Locations other = (Locations) obj;
+        final Location other = (Location) obj;
         if (!Objects.equals(this.row, other.row)) {
             return false;
         }
@@ -114,9 +88,6 @@ public class Locations implements Serializable {
             return false;
         }
         if (this.visited != other.visited) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.timeRemaining) != Double.doubleToLongBits(other.timeRemaining)) {
             return false;
         }
         return true;

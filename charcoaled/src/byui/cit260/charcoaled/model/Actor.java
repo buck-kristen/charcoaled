@@ -16,9 +16,7 @@ import java.util.Objects;
 public enum Actor implements Serializable { //removed class inserted enum p3 of pdf wk 9
     
     Jake("Firefighter man coming to the rescue");
-
-    private Game game;
-    private Locations location; //on my map it shows 0..1 not just 1 so not sure if this is correct?
+   
    // private String name; DELETE p3 
     private final String description;
     private final Point coordinates; //added final p.4
@@ -39,22 +37,6 @@ public enum Actor implements Serializable { //removed class inserted enum p3 of 
         this.name = name;
     } DELETE p3 */
      
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public Locations getLocation() {
-        return location;
-    }
-
-    // class instance variables
-    public void setLocation(Locations location) {
-        this.location = location;
-    }
     public String getDescription() {
         return description; 
     }
