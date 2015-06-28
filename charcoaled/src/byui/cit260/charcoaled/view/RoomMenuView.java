@@ -5,6 +5,7 @@
  */
 package byui.cit260.charcoaled.view;
 
+import byui.cit260.charcoaled.control.QuestionsControl;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,8 @@ import java.util.Scanner;
  * @author justdance2007
  */
 public class RoomMenuView extends View { //add extends View after RoomMenuView
+    private QuestionsControl questions;
+    
     public RoomMenuView () { //not sure if I need this? 
         //menu appears after inputing a temperature for equation entering room 
         super("\n"+ //add super in place of private...ROOMMENU=
@@ -25,7 +28,9 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
             "\nR - Rescue person"+
             "\nE - Exit the room"+
             "\n--------------------------------------","UVDPRE");
+    questions = new QuestionsControl();
     }
+    
     /*public void displayRoomMenu() {
         char selection = ' ';
         do {
@@ -100,8 +105,33 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
             System.out.println("pickItem function called");
         }
          private void rescue () {
-            System.out.println("rescue function called");
-        }
+            System.out.println("| Before you can save the victim answer the question |");
+            //display arrayList templist
+            questions.displayTempList();
+            //get user input for answer
+                
+    Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+    boolean valid = false; 
+    int selection = 0;
+  
+   
+        //prompt user to enter menu option 
+        System.out.print("Enter the average temperature: ");
+        //while a valid value name has not been retrieved 
+    while (!valid) {
+     
+        //get value entered from keyboard and trim off blanks
+         selection = keyboard.nextInt(); 
+         //invalid if user enters  
+           if (selection != questions.findAverage()) {
+               System.out.println("Invalid answer- recalculate");
+               continue;  
+           }
+           else 
+               System.out.println("Congratulations! You have saved a life!");
+           break;
+       }
+         }
         private void viewItems() {
             System.out.println("viewItems function called");
     }

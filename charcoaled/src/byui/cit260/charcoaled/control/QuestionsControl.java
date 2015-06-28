@@ -5,11 +5,25 @@
  */
 package byui.cit260.charcoaled.control;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author justdance2007
  */
 public class QuestionsControl {
+    ArrayList<Integer> tempList;
+    
+    public QuestionsControl() {
+        tempList = new ArrayList<Integer>();
+        //average= 561 total = 3366
+            tempList.add(150);
+            tempList.add(500);
+            tempList.add(430);
+            tempList.add(1200);
+            tempList.add(984);
+            tempList.add(102);
+    }
     public double sphereVolume(double diameter) { //function signature for Team
         if (diameter < 0 || diameter > 45) { //testing for invalids
             return -1; 
@@ -29,6 +43,23 @@ public class QuestionsControl {
             return degreesCelsius;
         }       
     }
+    public int findAverage() {
+        //for-each loop
+        int sum = 0; 
+            for (int temperature: tempList) {
+                sum = sum + temperature;
+            }
+	//calculate average value
+	int average = sum / tempList.size();
+	
+        return average;
+    }
+    public void displayTempList() {
+        System.out.println("\nFind the average of the following temperatures:");
+        for (int temperature: tempList) {
+                System.out.println(temperature);
+            }
+    }
     
     public double triangleArea (double base, double height) { // fx signature for calculating the area of a triangle
         if (base < 0 || base > 50) { // test for invalid values. is base negative or out of range?
@@ -43,5 +74,6 @@ public class QuestionsControl {
             
         return areaOfTriangle;
     }  
+    
     
 }
