@@ -7,10 +7,14 @@ package byui.cit260.charcoaled.view;
 
 import byui.cit260.charcoaled.control.GameControl;
 import byui.cit260.charcoaled.control.QuestionsControl;
+import byui.cit260.charcoaled.exceptions.ControlException;
 import byui.cit260.charcoaled.model.Location;
 import byui.cit260.charcoaled.model.Map;
 import charcoaled.Charcoaled;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -249,7 +253,12 @@ public class MainMenuView extends View{
             double returnValue = 0; 
              do {
                double fahrenheit = getFahrenheitInput ();  //assign variable fahrenheit to value user entered
-               returnValue = QuestionsControl.convertTemperature(fahrenheit); //assign returnValue variable to be checked in convertTemp() function
+                try {
+                    returnValue = QuestionsControl.convertTemperature(fahrenheit); //assign returnValue variable to be checked in convertTemp() function
+                } catch (ControlException ex) {
+                    System.out.println(ex.getMessage());
+                    returnValue = -1; 
+                }
             } while (returnValue == -1); //check if returnValue is equal to return in convTemp function of -1- if so then invalid
          //display room menu
         RoomMenuView roomMenu = new RoomMenuView();
@@ -348,12 +357,20 @@ public class MainMenuView extends View{
     double selection = 0; 
   
     //while a valid value name has not been retrieved 
-        //prompt user to enter menu option 
+    while (!valid) {
+        
+//prompt user to enter menu option 
         System.out.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
      
         //get value/number entered from keyboard 
-         selection = keyboard.nextDouble(); 
-
+        try { 
+        selection = keyboard.nextDouble(); 
+            valid = true; 
+        }
+        catch(InputMismatchException ex){
+            System.out.println("Invalid- must enter a number");
+        }
+    }
        //return name
        return selection;
 }

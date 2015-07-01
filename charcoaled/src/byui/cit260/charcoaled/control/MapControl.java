@@ -14,7 +14,9 @@ import byui.cit260.charcoaled.model.Scene;
  * @author justdance2007
  */
 public class MapControl { 
-    public static Map createMap() {
+    public static Map createMap()
+//throws MapControlException **and insert void after static then remove return statement below
+    {
         Map map = new Map(); //creating map
         
         Location[][] locations = MapControl.createLocations();
@@ -24,10 +26,11 @@ public class MapControl {
         map.setColumn("0");
       
         return map; 
-        
     }
 
-    private static Location[][] createLocations() {
+    private static Location[][] createLocations()
+//throws MapControlException **and insert void after static then remove return statement below
+    {
         int rows = 5;
         int columns = 5;
         Location[][] locations = new Location[rows][columns];//create 2d array

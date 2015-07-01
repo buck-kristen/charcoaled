@@ -5,6 +5,7 @@
  */
 package byui.cit260.charcoaled.control;
 
+import byui.cit260.charcoaled.exceptions.ControlException;
 import java.util.ArrayList;
 
 /**
@@ -24,18 +25,17 @@ public class QuestionsControl {
             tempList.add(984);
             tempList.add(102);
     }
-    public double sphereVolume(double diameter) { //function signature for Team
+    public double sphereVolume(double diameter) throws ControlException { //function signature for Team
         if (diameter < 0 || diameter > 45) { //testing for invalids
-            return -1; 
+            throw new ControlException("Diameter is out of range, must be between 0 and 45.");
         }
             double radius = diameter / 2; //finding volume of a sphere
             double volume = (4.0/3.0) * Math.PI * Math.pow(radius, 3);
             return volume;
         }
-    public static double convertTemperature(double fahrenheit) { //Kristen function signature
+    public static double convertTemperature(double fahrenheit) throws ControlException { //Kristen function signature
         if (fahrenheit < 100 || fahrenheit > 1500) { //testing for invalids
-            System.out.println("Invalid- Number must be entered between 100 and 1500.");
-            return -1;        
+            throw new ControlException("Invalid- Number must be entered between 100 and 1500.");       
         }
         else {                  
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius

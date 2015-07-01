@@ -6,6 +6,7 @@
 package byui.cit260.charcoaled.view;
 
 import byui.cit260.charcoaled.control.QuestionsControl;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -113,15 +114,19 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
     Scanner keyboard = new Scanner (System.in); //keyboard input stream            
     boolean valid = false; 
     int selection = 0;
-  
-   
         //prompt user to enter menu option 
         System.out.print("Enter the average temperature: ");
         //while a valid value name has not been retrieved 
     while (!valid) {
      
         //get value entered from keyboard and trim off blanks
-         selection = keyboard.nextInt(); 
+        try {
+        selection = keyboard.nextInt(); 
+        }
+        catch (InputMismatchException ex) {
+            System.out.println("Value must be an integer");
+            continue; 
+        }
          //invalid if user enters  
            if (selection != questions.findAverage()) {
                System.out.println("Invalid answer- recalculate");
@@ -130,8 +135,9 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
            else 
                System.out.println("Congratulations! You have saved a life!");
            break;
-       }
+       
          }
+}
         private void viewItems() {
             System.out.println("viewItems function called");
     }
