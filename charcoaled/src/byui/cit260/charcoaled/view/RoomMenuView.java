@@ -125,6 +125,7 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
         }
         catch (InputMismatchException ex) {
             System.out.println("Value must be an integer");
+            keyboard.nextLine();
             continue; 
         }
          //invalid if user enters  

@@ -369,6 +369,7 @@ public class MainMenuView extends View{
         }
         catch(InputMismatchException ex){
             System.out.println("Invalid- must enter a number");
+            keyboard.nextLine();
         }
     }
        //return name
@@ -380,3 +381,4 @@ public class MainMenuView extends View{
 
     
 
+ 
