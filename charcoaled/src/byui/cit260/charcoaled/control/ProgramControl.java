@@ -16,7 +16,7 @@ public class ProgramControl {
 
     public static Player createPlayer(String playersName) {
         if (playersName == null) {
-            return null;
+            return null;               //should this line be replaced with a runtime exception?
         }
         Player player = new Player();
         player.setName(playersName);
@@ -29,4 +29,3 @@ public class ProgramControl {
     }
     
 }
-

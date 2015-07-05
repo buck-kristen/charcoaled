@@ -5,7 +5,7 @@
  */
 package byui.cit260.charcoaled.control;
 
-import byui.cit260.charcoaled.exceptions.ControlException;
+import byui.cit260.charcoaled.exceptions.QuestionsControlException;
 import java.util.ArrayList;
 
 /**
@@ -25,17 +25,19 @@ public class QuestionsControl {
             tempList.add(984);
             tempList.add(102);
     }
-    public double sphereVolume(double diameter) throws ControlException { //function signature for Team
+    
+    public double sphereVolume(double diameter) throws QuestionsControlException { //function signature for Team
         if (diameter < 0 || diameter > 45) { //testing for invalids
-            throw new ControlException("Diameter is out of range, must be between 0 and 45.");
+            throw new QuestionsControlException("Diameter is out of range, must be between 0 and 45.");
         }
-            double radius = diameter / 2; //finding volume of a sphere
-            double volume = (4.0/3.0) * Math.PI * Math.pow(radius, 3);
-            return volume;
-        }
-    public static double convertTemperature(double fahrenheit) throws ControlException { //Kristen function signature
+        double radius = diameter / 2; //finding volume of a sphere
+        double volume = (4.0/3.0) * Math.PI * Math.pow(radius, 3);
+        return volume;
+    }
+    
+    public static double convertTemperature(double fahrenheit) throws QuestionsControlException { //Kristen function signature
         if (fahrenheit < 100 || fahrenheit > 1500) { //testing for invalids
-            throw new ControlException("Invalid- Number must be entered between 100 and 1500.");       
+            throw new QuestionsControlException("Temperature value is out of range, must be between 100 and 1500 degrees Fahrenheit.");       
         }
         else {                  
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius
@@ -43,6 +45,7 @@ public class QuestionsControl {
             return degreesCelsius;
         }       
     }
+    
     public int findAverage() {
         //for-each loop
         int sum = 0; 
@@ -54,20 +57,21 @@ public class QuestionsControl {
 	
         return average;
     }
+    
     public void displayTempList() {
         System.out.println("\nFind the average of the following temperatures:");
         for (int temperature: tempList) {
-                System.out.println(temperature);
-            }
+            System.out.println(temperature);
+        }
     }
     
-    public double triangleArea (double base, double height) { // fx signature for calculating the area of a triangle
+    public double triangleArea (double base, double height) throws QuestionsControlException { // fx signature for calculating the area of a triangle
         if (base < 0 || base > 50) { // test for invalid values. is base negative or out of range?
-            return -1;
+            throw new QuestionsControlException("Base value is out of range, must be between 0 and 50.");
         }
             
         if (height < 0 || height > 50) { // test for invalid values. is height negative or out of range?
-            return -1;
+            throw new QuestionsControlException("Height value is out of range, must be between 0 and 50.");
         }
         
         double areaOfTriangle = (base * height) / 2; // calculate area of triangle (when base & height are known)

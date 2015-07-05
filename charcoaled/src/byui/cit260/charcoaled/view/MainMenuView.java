@@ -7,7 +7,7 @@ package byui.cit260.charcoaled.view;
 
 import byui.cit260.charcoaled.control.GameControl;
 import byui.cit260.charcoaled.control.QuestionsControl;
-import byui.cit260.charcoaled.exceptions.ControlException;
+import byui.cit260.charcoaled.exceptions.QuestionsControlException;
 import byui.cit260.charcoaled.model.Location;
 import byui.cit260.charcoaled.model.Map;
 import charcoaled.Charcoaled;
@@ -98,8 +98,8 @@ public class MainMenuView extends View{
        }
        //return name
        return menuItem;
-}
-*/
+       }
+       */
     //responds to user input entered from main menu
     @Override
     //public void doAction(char selection) old statement before next change
@@ -124,7 +124,7 @@ public class MainMenuView extends View{
         default:
             System.out.println("\n*** Invalid selection. Try again. ***");
             break;
-    }
+        }
     }
     
     //create stub functions for doAction() main menu selections
@@ -142,7 +142,7 @@ public class MainMenuView extends View{
             this.displayGameMap();
         }
     
-//do-while statement chosen for game map menu since I wanted to be checked at least once 
+    //do-while statement chosen for game map menu since I wanted to be checked at least once 
     public void displayGameMap() {
         char selection = ' ';
         do {
@@ -231,9 +231,9 @@ public class MainMenuView extends View{
         default:
             System.out.println("\n*** Invalid selection. Try again. ***");
             break;
+        }
     }
-    }
-//created stub functions for game map menu
+        //created stub functions for game map menu
         private void moveUp () {
             System.out.println("moveUp function called");
         }        
@@ -243,27 +243,27 @@ public class MainMenuView extends View{
         private void moveDown () {
             System.out.println("moveDown function called");
         }
-         private void moveRight () {
+        private void moveRight () {
             System.out.println("moveRight function called");
         }
-   //View 2 action if E is entered from game map menu
-         private void enterDoor () {
+        //View 2 action if E is entered from game map menu
+        private void enterDoor () {
             //created returnValue variable to be referenced in do-while loop
             //setting value to 0 instead of null since not a string
             double returnValue = 0; 
-             do {
-               double fahrenheit = getFahrenheitInput ();  //assign variable fahrenheit to value user entered
-                try {
-                    returnValue = QuestionsControl.convertTemperature(fahrenheit); //assign returnValue variable to be checked in convertTemp() function
-                } catch (ControlException ex) {
-                    System.out.println(ex.getMessage());
-                    returnValue = -1; 
-                }
+            do {
+                double fahrenheit = getFahrenheitInput ();  //assign variable fahrenheit to value user entered
+            try {
+                returnValue = QuestionsControl.convertTemperature(fahrenheit); //assign returnValue variable to be checked in convertTemp() function
+            } catch (QuestionsControlException ex) {
+                System.out.println(ex.getMessage());
+                returnValue = -1; 
+            }
             } while (returnValue == -1); //check if returnValue is equal to return in convTemp function of -1- if so then invalid
-         //display room menu
-        RoomMenuView roomMenu = new RoomMenuView();
-        roomMenu.display();
-         }
+                //display room menu
+                RoomMenuView roomMenu = new RoomMenuView();
+                roomMenu.display();
+        }
          
          private void viewItems () {
             System.out.println("viewItems function called");
@@ -348,37 +348,31 @@ public class MainMenuView extends View{
         System.out.println("displayGameObjective function called");
     }
   
-//view 2 for individual wk7 response to Enter door in game map menu
+    //view 2 for individual wk7 response to Enter door in game map menu
     public double getFahrenheitInput() {
     
-    Scanner keyboard = new Scanner (System.in); //keyboard input stream            
-    boolean valid = false; //shows if key has been entered??
-    //String selection = null; ?? do I keep string since the function I call uses a double?
-    double selection = 0; 
-  
-    //while a valid value name has not been retrieved 
-    while (!valid) {
-        
-//prompt user to enter menu option 
-        System.out.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
-     
-        //get value/number entered from keyboard 
-        try { 
-        selection = keyboard.nextDouble(); 
-            valid = true; 
+        Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+        boolean valid = false; //shows if key has been entered??
+        //String selection = null; ?? do I keep string since the function I call uses a double?
+        double selection = 0; 
+
+        //while a valid value name has not been retrieved 
+        while (!valid) {
+
+            //prompt user to enter menu option 
+            System.out.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
+
+            //get value/number entered from keyboard 
+            try { 
+                selection = keyboard.nextDouble(); 
+                valid = true; 
+            }
+            catch(InputMismatchException ex){
+                System.out.println("Invalid- must enter a number");
+                keyboard.nextLine();
+            }
         }
-        catch(InputMismatchException ex){
-            System.out.println("Invalid- must enter a number");
-            keyboard.nextLine();
-        }
+        //return name
+        return selection;
     }
-       //return name
-       return selection;
 }
-}
-    
-
-
-    
-
- 

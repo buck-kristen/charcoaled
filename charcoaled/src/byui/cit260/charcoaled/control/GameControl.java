@@ -24,7 +24,7 @@ public class GameControl {
         game.setPlayer(player); //save player in game
         
         Actor[] actors = GameControl.createActors();
-        game.setActors(actors); 
+        game.setActors(actors); // move actors to starting locations
         
         Map gameMap = MapControl.createMap();
         game.setGameMap(gameMap); //add map to game

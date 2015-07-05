@@ -69,16 +69,15 @@ public class StartProgramView {
        }
        //return name
        return playersName;
-       }
+    }
 
     public void displayWelcomeMessage(Player player) {
         System.out.println("\n\n==============================================");
         System.out.println("\tWelcome to Charcoaled " + player.getName());
         System.out.println("\nEnjoy your rescue assignments!");
         System.out.println("==============================================");
-    }
+    }    
        
-       
-    }
+}
     
 

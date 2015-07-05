@@ -29,19 +29,20 @@ public class Charcoaled {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    //create StartProgramView and start program
+    
         StartProgramView startProgramView = new StartProgramView ();
         //pg11 wk10 team
         try {
-        startProgramView.startProgram(); 
+            //create StartProgramView and start program
+            startProgramView.startProgram(); 
         } catch (Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
             startProgramView.startProgram(); 
         }
     //create function for getPlayersName; I removed this because it was repeating the name twice when running project
-     //   StartProgramView playersName = new StartProgramView ();
-       // playersName.getPlayersName();
+        //StartProgramView playersName = new StartProgramView ();
+        //playersName.getPlayersName();
     }
 
     public static Game getCurrentGame() {

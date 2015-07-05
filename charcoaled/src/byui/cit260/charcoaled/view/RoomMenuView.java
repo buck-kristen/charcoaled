@@ -69,7 +69,7 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
 }
     */
 @Override 
-    public void doAction(Object obj)//change to  public void doAction (Object obj)
+    public void doAction(Object obj)//change to public void doAction (Object obj)
     {
     Character selection = (Character) obj; //casting or type cast
         switch (selection) {
@@ -93,7 +93,7 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
         default:
             System.out.println("\n*** Invalid selection. Try again. ***");
             break;
-    }
+        }
     }
 //stub functions
         private void useItem () {
@@ -105,44 +105,44 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
         private void pickItem () {
             System.out.println("pickItem function called");
         }
-         private void rescue () {
-            System.out.println("| Before you can save the victim answer the question |");
+        private void rescue () {
+            System.out.println("| Before you can save the victim, please answer the question |");
             //display arrayList templist
             questions.displayTempList();
             //get user input for answer
                 
-    Scanner keyboard = new Scanner (System.in); //keyboard input stream            
-    boolean valid = false; 
-    int selection = 0;
-        //prompt user to enter menu option 
-        System.out.print("Enter the average temperature: ");
-        //while a valid value name has not been retrieved 
-    while (!valid) {
-     
-        //get value entered from keyboard and trim off blanks
-        try {
-        selection = keyboard.nextInt(); 
+            Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+            boolean valid = false; 
+            int selection = 0;
+                //prompt user to enter menu option 
+                System.out.print("Enter the average temperature: ");
+                //while a valid value name has not been retrieved 
+            while (!valid) {
+
+                //get value entered from keyboard and trim off blanks
+                try {
+                selection = keyboard.nextInt(); 
+                }
+                catch (InputMismatchException ex) {
+                    System.out.println("Value must be an integer");
+                    keyboard.nextLine();
+                    continue; 
+                }
+                 //invalid if user enters  
+                   if (selection != questions.findAverage()) {
+                       System.out.println("Invalid answer- recalculate");
+                       continue;  
+                   }
+                   else 
+                       System.out.println("Congratulations! You have saved a life!");
+                   break;
+
+            }
         }
-        catch (InputMismatchException ex) {
-            System.out.println("Value must be an integer");
-            keyboard.nextLine();
-            continue; 
-        }
-         //invalid if user enters  
-           if (selection != questions.findAverage()) {
-               System.out.println("Invalid answer- recalculate");
-               continue;  
-           }
-           else 
-               System.out.println("Congratulations! You have saved a life!");
-           break;
-       
-         }
-}
         private void viewItems() {
             System.out.println("viewItems function called");
-    }
-
-    }
+        }
+        
+}
 
     

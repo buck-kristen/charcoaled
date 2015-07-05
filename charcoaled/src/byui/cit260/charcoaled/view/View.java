@@ -30,8 +30,9 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String promptMessage) {
         this.promptMessage = promptMessage;
     }           
-//displays the main menu and gets user input keys typed
-    @Override//add Override 
+
+    //displays the main menu and gets user input keys typed
+    @Override //Overrides and implements corresponding function signatures 
     public void display() { //changed from displayMenu to display()
         char selection = ' ';
         do {
@@ -68,5 +69,5 @@ public abstract class View implements ViewInterface {
        }
        //return name
        return menuItem;
-}
+    }
 }
