@@ -5,16 +5,28 @@
  */
 package byui.cit260.charcoaled.view;
 
+import charcoaled.Charcoaled;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author justdance2007
  */
 public abstract class View implements ViewInterface {
-
+    //added from wk 11 pg12 
+    private String message; 
+    
     private String promptMessage;
     private String menuOptions;
+    
+    //added from wk 11 pg 12
+    protected final BufferedReader keyboard = Charcoaled.getInFile();
+    protected final PrintWriter console = Charcoaled.getOutFile();
     
     public abstract void doAction(Object obj);
      
@@ -36,8 +48,8 @@ public abstract class View implements ViewInterface {
     public void display() { //changed from displayMenu to display()
         char selection = ' ';
         do {
-            System.out.println(promptMessage);//Display main menu
-            
+            //System.out.println(promptMessage);//Display main menu
+            this.console.println(promptMessage);//Display main menu
             String input = this.getInput(); //get user's selection
             selection = input.charAt(0); //get first character of string
             this.doAction(selection); //do action based on selection
@@ -50,19 +62,27 @@ public abstract class View implements ViewInterface {
                 
     boolean valid = false; //shows if key has been entered??
     String menuItem = null;
-    Scanner keyboard = new Scanner (System.in); //keyboard input stream
+    //Scanner keyboard = new Scanner (System.in); //keyboard input stream
     
     while (!valid) {
         //prompt user to enter menu option 
-        System.out.println("Enter a menu option");
+        //System.out.println("Enter a menu option");
+        this.console.println("Enter a menu option");
      
-        //get value entered from keyboard and trim off blanks
-         menuItem = keyboard.nextLine(); 
+        try {
+            //get value entered from keyboard and trim off blanks
+            //menuItem = keyboard.nextLine(); **commented out for below line wk 11
+            //added instead of above
+            menuItem = this.keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+        }
          menuItem = menuItem.trim();
          menuItem = menuItem.toUpperCase();
          //invalid if user enters  
            if (!menuOptions.contains(menuItem.toUpperCase())) {
-               System.out.println("Invalid menu option.");
+               //System.out.println("Invalid menu option.");
+               this.console.println("Invalid menu option.");
                continue;  
            }
            break;

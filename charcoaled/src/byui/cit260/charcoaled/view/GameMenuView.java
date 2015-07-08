@@ -5,14 +5,21 @@
  */
 package byui.cit260.charcoaled.view;
 
+import charcoaled.Charcoaled;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
 /**
  *
  * @author justdance2007
  */
 public class GameMenuView {
-
+    protected final BufferedReader keyboard = Charcoaled.getInFile();
+    protected final PrintWriter console = Charcoaled.getOutFile();
+    
     public void displayMenu() {
-        System.out.println("\n*** displayMenu sub function called in gameMenuViewClass***");
+        //System.out.println("\n*** displayMenu sub function called in gameMenuViewClass***");
+        this.console.println("\n*** displayMenu sub function called in gameMenuViewClass***");
     }
     
 }

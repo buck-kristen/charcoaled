@@ -5,8 +5,15 @@
  */
 package byui.cit260.charcoaled.control;
 
+import byui.cit260.charcoaled.exceptions.QuestionsControlException;
+import charcoaled.Charcoaled;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 
 
 /**
@@ -14,6 +21,8 @@ import static org.junit.Assert.*;
  * @author justdance2007
  */
 public class QuestionsControlTest {
+    protected final BufferedReader keyboard = Charcoaled.getInFile();
+    protected final PrintWriter console = Charcoaled.getOutFile();
     
     public QuestionsControlTest() {
     }
@@ -23,11 +32,13 @@ public class QuestionsControlTest {
      */
     @Test
     public void testSphereVolume() {
-        System.out.println("sphereVolume");
+        //System.out.println("sphereVolume");
+        this.console.println("sphereVolume");
     /**********************************
      * Test Case #1; valid entry
      *********************************/
-        System.out.println("\tTest case #1");
+        //System.out.println("\tTest case #1");
+        this.console.println("\tTest case #1");
         
         //input parameter for test case 1
         double diameter = 36.0;
@@ -36,7 +47,12 @@ public class QuestionsControlTest {
         //expected result
         double expResult = 24429.0244743;
         //call function to run test
-        double result = instance.sphereVolume(diameter);
+        double result = 0;
+        try {
+            result = instance.sphereVolume(diameter);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         
@@ -44,14 +60,19 @@ public class QuestionsControlTest {
         /**********************************
      * Test Case #2; invalid entry 
      *********************************/
-        System.out.println("\tTest case #2");
+        //System.out.println("\tTest case #2");
+        this.console.println("\tTest case #2");
         
         //input parameter for test case 2
         diameter = -1.0;
         //expected result
         expResult = -1;
-        //call function to run test
-        result = instance.sphereVolume(diameter);
+        try {
+            //call function to run test
+            result = instance.sphereVolume(diameter);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
@@ -60,14 +81,19 @@ public class QuestionsControlTest {
            /**********************************
      * Test Case #3; invalid entry 
      *********************************/
-        System.out.println("\tTest case #3");
+       // System.out.println("\tTest case #3");
+        this.console.println("\tTest case #3");
         
         //input parameter for test case 3
         diameter = 46.0;
         //expected result
         expResult = -1;
-        //call function to run test
-        result = instance.sphereVolume(diameter);
+        try {
+            //call function to run test
+            result = instance.sphereVolume(diameter);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
@@ -76,14 +102,19 @@ public class QuestionsControlTest {
            /**********************************
      * Test Case #4; boundary - low
      *********************************/
-        System.out.println("\tTest case #4");
+        //System.out.println("\tTest case #4");
+        this.console.println("\tTest case #4");
         
         //input parameter for test case 4
         diameter = 0.0;
         //expected result
         expResult = 0.0;
-        //call function to run test
-        result = instance.sphereVolume(diameter);
+        try {
+            //call function to run test
+            result = instance.sphereVolume(diameter);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
@@ -92,14 +123,19 @@ public class QuestionsControlTest {
            /**********************************
      * Test Case #5 boundary - high
      *********************************/
-        System.out.println("\tTest case #5");
+        //System.out.println("\tTest case #5");
+        this.console.println("\tTest case #5");
         
         //input parameter for test case 5
         diameter = 45.0;
         //expected result
         expResult = 47712.9384264;
-        //call function to run test
-        result = instance.sphereVolume(diameter);
+        try {
+            //call function to run test
+            result = instance.sphereVolume(diameter);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         // TODO review the generated test code and remove the default call to fail.
@@ -111,12 +147,14 @@ public class QuestionsControlTest {
      */
     @Test
     public void testConvertTemperature() {
-        System.out.println("convertTemperature");
+        //System.out.println("convertTemperature");
+        this.console.println("convertTemperature");
         
      /**********************************
      * Test Case #1; invalid entry
      *********************************/
-        System.out.println("\tTest Case #1");
+       // System.out.println("\tTest Case #1");
+        this.console.println("\tTest Case #1");
         //input parameter for test case 1
         double fahrenheit = 1000.0;
         //create instance of QuestionsControl class
@@ -124,20 +162,30 @@ public class QuestionsControlTest {
          //expected result
         double expResult = 537.777777778;
         //call function to run test
-        double result = instance.convertTemperature(fahrenheit);
+        double result = 0;
+        try {
+            result = instance.convertTemperature(fahrenheit);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
       
           /**********************************
      * Test Case #2
      *********************************/
-        System.out.println("\tTest Case #2");
+        //System.out.println("\tTest Case #2");
+        this.console.println("\tTest Case #2");
         //input parameter for test case 2
         fahrenheit = 99.0;
          //expected result
         expResult = -1;
-        //call function to run test
-        result = instance.convertTemperature(fahrenheit);
+        try {
+            //call function to run test
+            result = instance.convertTemperature(fahrenheit);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
       
@@ -145,26 +193,36 @@ public class QuestionsControlTest {
           /**********************************
      * Test Case #3
      *********************************/
-        System.out.println("\tTest Case #3");
+        //System.out.println("\tTest Case #3");
+        this.console.println("\tTest Case #3");
         //input parameter for test case 3
         fahrenheit = 1501.0;
          //expected result
         expResult = -1;
-        //call function to run test
-        result = instance.convertTemperature(fahrenheit);
+        try {
+            //call function to run test
+            result = instance.convertTemperature(fahrenheit);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
         
           /**********************************
      * Test Case #4
      *********************************/
-        System.out.println("\tTest Case #4");
+        //System.out.println("\tTest Case #4");
+        this.console.println("\tTest Case #4");
         //input parameter for test case 4
         fahrenheit = 100.0;
          //expected result
         expResult = 37.7777777778;
-        //call function to run test
-        result = instance.convertTemperature(fahrenheit);
+        try {
+            //call function to run test
+            result = instance.convertTemperature(fahrenheit);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
 
@@ -172,13 +230,18 @@ public class QuestionsControlTest {
           /**********************************
      * Test Case #5
      *********************************/
-        System.out.println("\tTest Case #5");
+        //System.out.println("\tTest Case #5");
+        this.console.println("\tTest Case #5");
         //input parameter for test case 5
         fahrenheit = 1500.0;
          //expected result
         expResult = 815.555555556;
-        //call function to run test
-        result = instance.convertTemperature(fahrenheit);
+        try {
+            //call function to run test
+            result = instance.convertTemperature(fahrenheit);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //compare expResult to actual result
         assertEquals(expResult, result, 0.0001);
       
@@ -203,7 +266,12 @@ public class QuestionsControlTest {
         // create instance of QuestionsControl class
         QuestionsControl instance = new QuestionsControl();
         // call function to run test
-        double result = instance.triangleArea(base, height);
+        double result = 0;
+        try {
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
                 
@@ -216,8 +284,12 @@ public class QuestionsControlTest {
         height = 8.0;
         // expected output returned value
         expResult = -1.0; 
-        // call function to run test
-        result = instance.triangleArea(base, height);
+        try {
+            // call function to run test
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 		
@@ -230,8 +302,12 @@ public class QuestionsControlTest {
         height = -1.0;
         // expected output returned value
         expResult = -1.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 				
@@ -244,8 +320,12 @@ public class QuestionsControlTest {
         height = 8.0;
         // expected output returned value
         expResult = -1.0; 
-        // call function to run test
-        result = instance.triangleArea(base, height);
+        try {
+            // call function to run test
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 		
@@ -258,8 +338,12 @@ public class QuestionsControlTest {
         height = 51.0;
         // expected output returned value
         expResult = -1.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 				
@@ -272,8 +356,12 @@ public class QuestionsControlTest {
         height = 8.0;
         // expected output returned value
         expResult = 0.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 				
@@ -286,8 +374,12 @@ public class QuestionsControlTest {
         height = 0.0;
         // expected output returned value
         expResult = 0.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 				
@@ -300,8 +392,12 @@ public class QuestionsControlTest {
         height = 8.0;
         // expected output returned value
         expResult = 200.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 				
@@ -314,8 +410,12 @@ public class QuestionsControlTest {
         height = 50.0;
         // expected output returned value
         expResult = 150.0; 
-        // create instance of QuestionsControl class
-        result = instance.triangleArea(base, height);
+        try {
+            // create instance of QuestionsControl class
+            result = instance.triangleArea(base, height);
+        } catch (QuestionsControlException ex) {
+            Logger.getLogger(QuestionsControlTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // compare expected return value with actual value returned
         assertEquals(expResult, result, 0.0001);
 	

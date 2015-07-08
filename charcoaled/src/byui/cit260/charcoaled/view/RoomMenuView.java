@@ -6,6 +6,7 @@
 package byui.cit260.charcoaled.view;
 
 import byui.cit260.charcoaled.control.QuestionsControl;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -91,56 +92,70 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
         case 'X': //Exit or Return to previous menu
             return;
         default:
-            System.out.println("\n*** Invalid selection. Try again. ***");
+            //System.out.println("\n*** Invalid selection. Try again. ***");
+            this.console.println("\n*** Invalid selection. Try again. ***");
             break;
         }
     }
 //stub functions
         private void useItem () {
-            System.out.println("useItem function called");
+            //System.out.println("useItem function called");
+            this.console.println("useItem function called");
         }        
         private void dropItem () {
-            System.out.println("dropItem function called");
+            //System.out.println("dropItem function called");
+            this.console.println("dropItem function called");
         }
         private void pickItem () {
-            System.out.println("pickItem function called");
+            //System.out.println("pickItem function called");
+            this.console.println("pickItem function called");
         }
         private void rescue () {
-            System.out.println("| Before you can save the victim, please answer the question |");
+            //System.out.println("| Before you can save the victim, please answer the question |");
+            this.console.println("| Before you can save the victim, please answer the question |");
             //display arrayList templist
             questions.displayTempList();
             //get user input for answer
                 
-            Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+           // Scanner keyboard = new Scanner (System.in); //keyboard input stream            
             boolean valid = false; 
+            String selectionS = null;
             int selection = 0;
                 //prompt user to enter menu option 
-                System.out.print("Enter the average temperature: ");
+                //System.out.print("Enter the average temperature: ");
+                this.console.print("Enter the average temperature: ");
                 //while a valid value name has not been retrieved 
             while (!valid) {
 
                 //get value entered from keyboard and trim off blanks
                 try {
-                selection = keyboard.nextInt(); 
+                selectionS = keyboard.readLine();
+                selection = Integer.parseInt(selectionS);
+                //this.keyboard.readLine(); **should I add this??
                 }
-                catch (InputMismatchException ex) {
-                    System.out.println("Value must be an integer");
-                    keyboard.nextLine();
+                catch (NumberFormatException ex) {
+                    System.out.println("Value must be an integer. Enter the average temperature: ");
                     continue; 
+                }
+                catch (IOException ex) {
+                    System.out.println(ex.getStackTrace());
                 }
                  //invalid if user enters  
                    if (selection != questions.findAverage()) {
-                       System.out.println("Invalid answer- recalculate");
+                       //System.out.println("Invalid answer- recalculate");
+                       this.console.println("Invalid answer- recalculate");
                        continue;  
                    }
                    else 
-                       System.out.println("Congratulations! You have saved a life!");
+                       //System.out.println("Congratulations! You have saved a life!");
+                       this.console.println("Congratulations! You have saved a life!");
                    break;
 
             }
         }
         private void viewItems() {
-            System.out.println("viewItems function called");
+            //System.out.println("viewItems function called");
+            this.console.println("viewItems function called");
         }
         
 }

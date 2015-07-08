@@ -11,6 +11,7 @@ import byui.cit260.charcoaled.exceptions.QuestionsControlException;
 import byui.cit260.charcoaled.model.Location;
 import byui.cit260.charcoaled.model.Map;
 import charcoaled.Charcoaled;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -122,7 +123,8 @@ public class MainMenuView extends View{
         case 'E': //Exit or Return
             return;
         default:
-            System.out.println("\n*** Invalid selection. Try again. ***");
+            //System.out.println("\n*** Invalid selection. Try again. ***");
+            this.console.println("\n*** Invalid selection. Try again. ***");
             break;
         }
     }
@@ -147,7 +149,8 @@ public class MainMenuView extends View{
         char selection = ' ';
         do {
             this.displayMap();
-            System.out.println(GAMEMAPMENU);//Display Game map menu
+           // System.out.println(GAMEMAPMENU);//Display Game map menu
+            this.console.println(GAMEMAPMENU);//Display Game map menu
             
             String mapInput = this.getMapInput(); //get user's selection for Game map menu
             selection = mapInput.charAt(0); //get first character of string
@@ -157,19 +160,25 @@ public class MainMenuView extends View{
     public void displayMap() {
         Map gameMap = Charcoaled.getCurrentGame().getGameMap();//get Game map by retrieving current game
         Location[][] locations = gameMap.getLocations();//get locations inside map
-        System.out.println("Map\n");
-        System.out.println("  | 0 | 1 | 2 | 3 | 4 |");
+        //System.out.println("Map\n");
+        this.console.println("Map\n");
+        //System.out.println("  | 0 | 1 | 2 | 3 | 4 |");
+        this.console.println("  | 0 | 1 | 2 | 3 | 4 |");
             for (int r = 0; r < 5; r++) {
-                System.out.print(Integer.toString(r) + " |");
+                //System.out.print(Integer.toString(r) + " |");
+                this.console.print(Integer.toString(r) + " |");
                 for (int c = 0; c < 5; c++) {
                     if (locations[r][c].isVisited() == false) {
-                       System.out.print("?? |");
+                       //System.out.print("?? |");
+                       this.console.print("?? |");
                     } 
                     else {
-                       System.out.print(locations[r][c].getScene().getSymbol() + "|");
+                       //System.out.print(locations[r][c].getScene().getSymbol() + "|");
+                       this.console.print(locations[r][c].getScene().getSymbol() + "|");
                     }
                 }
-                System.out.println("");
+                //System.out.println("");
+                this.console.println("");
             }
             
         
@@ -178,22 +187,29 @@ public class MainMenuView extends View{
     //get user input for Game map menu and check if invalid option entered 
         public String getMapInput() {
     
-    Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+    //Scanner keyboard = new Scanner (System.in); //keyboard input stream            
     boolean valid = false; //shows if key has been entered??
     String selection = null;
   
     //while a valid value name has not been retrieved 
     while (!valid) {
         //prompt user to enter menu option 
-        System.out.println("Enter a game menu option");
+        //System.out.println("Enter a game menu option");
+        this.console.println("Enter a game menu option");
      
-        //get value entered from keyboard and trim off blanks
-         selection = keyboard.nextLine(); 
+        try {
+            //get value entered from keyboard and trim off blanks
+            //selection = keyboard.nextLine();
+            selection = this.keyboard.readLine();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
          selection = selection.trim();
          selection = selection.toUpperCase();
          //invalid if user enters  
            if (!"UDLRVIEX".contains(selection.toUpperCase())) {
-               System.out.println("Invalid menu option.");
+               //System.out.println("Invalid menu option.");
+               this.console.println("Invalid menu option.");
                continue;  
            }
            break;
@@ -229,22 +245,27 @@ public class MainMenuView extends View{
         case 'X': //Exit or Return to main menu
             return;
         default:
-            System.out.println("\n*** Invalid selection. Try again. ***");
+            //System.out.println("\n*** Invalid selection. Try again. ***");
+            this.console.println("\n*** Invalid selection. Try again. ***");
             break;
         }
     }
         //created stub functions for game map menu
         private void moveUp () {
-            System.out.println("moveUp function called");
+            //System.out.println("moveUp function called");
+            this.console.println("moveUp function called");
         }        
         private void moveLeft () {
-            System.out.println("moveLeft function called");
+            //System.out.println("moveLeft function called");
+            this.console.println("moveLeft function called");
         }
         private void moveDown () {
-            System.out.println("moveDown function called");
+            //System.out.println("moveDown function called");
+            this.console.println("moveDown function called");
         }
         private void moveRight () {
-            System.out.println("moveRight function called");
+            //System.out.println("moveRight function called");
+            this.console.println("moveRight function called");
         }
         //View 2 action if E is entered from game map menu
         private void enterDoor () {
@@ -266,23 +287,33 @@ public class MainMenuView extends View{
         }
          
          private void viewItems () {
-            System.out.println("viewItems function called");
+            //System.out.println("viewItems function called");
+            this.console.println("viewItems function called");
         }
          private void removeItems () {
-            System.out.println("removeItems function called");
+           // System.out.println("removeItems function called");
+            this.console.println("removeItems function called");
         }
    //end of game map menu code
         
    //stub functions for main menu  
          private void loadExistingGame () {
-            System.out.println("loadExistingGame function called");
+            //System.out.println("loadExistingGame function called");
+            String filePath = this.getSaveInput();
+                try {
+                   //save game to file
+                    GameControl.loadExistingGame(filePath);
+                } catch (Exception ex) {
+                    ErrorView.display("MainMenuView", ex.getMessage());
+                }
         }
    //display help menu when selected from main menu "H"   
         public void displayHelpMenu () {
             char selection = ' ';
         do {
      
-            System.out.println(HELPMENU);//Display help menu
+            //System.out.println(HELPMENU);//Display help menu
+            this.console.println(HELPMENU);//Display help menu
             
             String helpInput = this.getHelpInput(); //get user's selection for help menu
             selection = helpInput.charAt(0); //get first character of string
@@ -290,25 +321,59 @@ public class MainMenuView extends View{
         } while (selection != 'Q'); //and selection is not Q
         }
         private void saveGame () {
-            System.out.println("saveGame function called");
+            //System.out.println("saveGame function called");
+            
+            String filePath = this.getSaveInput();
+                try {
+                   //save game to file
+                    GameControl.saveGame(Charcoaled.getCurrentGame(), filePath);
+                } catch (Exception ex) {
+                    ErrorView.display("MainMenuView", ex.getMessage());
+                }
         }
-  //get user input from help menu
+public String getSaveInput() {
+        boolean valid = false; //shows if key has been entered??
+    String helpMenuItem = null;
+    //Scanner keyboard = new Scanner (System.in); //keyboard input stream
+    
+        //prompt user to enter menu option 
+        //System.out.println("Enter a menu option");
+        this.console.println("Enter a file path:");
+     
+            try {
+                //get value entered from keyboard and trim off blanks
+                //helpMenuItem = keyboard.nextLine();
+                helpMenuItem = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       //return name
+       return helpMenuItem;
+    }  
+//get user input from help menu
     public String getHelpInput() {
         boolean valid = false; //shows if key has been entered??
     String helpMenuItem = null;
-    Scanner keyboard = new Scanner (System.in); //keyboard input stream
+    //Scanner keyboard = new Scanner (System.in); //keyboard input stream
     
         while (!valid) {
         //prompt user to enter menu option 
-        System.out.println("Enter a menu option");
+        //System.out.println("Enter a menu option");
+        this.console.println("Enter a menu option");
      
-        //get value entered from keyboard and trim off blanks
-         helpMenuItem = keyboard.nextLine(); 
+            try {
+                //get value entered from keyboard and trim off blanks
+                //helpMenuItem = keyboard.nextLine();
+                helpMenuItem = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
          helpMenuItem = helpMenuItem.trim();
          helpMenuItem = helpMenuItem.toUpperCase();
          //invalid if user enters  
            if (!"OMDQ".contains(helpMenuItem.toUpperCase())) {
-               System.out.println("Invalid menu option.");
+               //System.out.println("Invalid menu option.");
+               this.console.println("Invalid menu option.");
                continue;  
            }
            break;
@@ -331,45 +396,51 @@ public class MainMenuView extends View{
         case 'Q': //Exit or Return
             return;
         default:
-            System.out.println("\n*** Invalid selection. Try again. ***");
+            //System.out.println("\n*** Invalid selection. Try again. ***");
+            this.console.println("\n*** Invalid selection. Try again. ***");
             break;
     }
     }
     //help menu stub function created
     private void describeDifficulty() {
-        System.out.println("describeDifficulty function called");
+        //System.out.println("describeDifficulty function called");
+        this.console.println("describeDifficulty function called");
     }
 
     private void describePlayerMove() {
-        System.out.println("describePlayerMove function called");
+        //System.out.println("describePlayerMove function called");
+        this.console.println("describePlayerMove function called");
     }
 
     private void displayGameObjective() {
-        System.out.println("displayGameObjective function called");
+        //System.out.println("displayGameObjective function called");
+        this.console.println("displayGameObjective function called");
     }
   
     //view 2 for individual wk7 response to Enter door in game map menu
     public double getFahrenheitInput() {
     
-        Scanner keyboard = new Scanner (System.in); //keyboard input stream            
+        //Scanner keyboard = new Scanner (System.in); //keyboard input stream            
         boolean valid = false; //shows if key has been entered??
-        //String selection = null; ?? do I keep string since the function I call uses a double?
+        String selectionS = null; //?? do I keep string since the function I call uses a double?
         double selection = 0; 
 
         //while a valid value name has not been retrieved 
         while (!valid) {
 
             //prompt user to enter menu option 
-            System.out.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
+            //System.out.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
+            this.console.println("Enter a temperature in degrees Fahrenheit to convert the temperature to Celsius");
 
             //get value/number entered from keyboard 
             try { 
-                selection = keyboard.nextDouble(); 
+                selectionS = keyboard.readLine(); 
+                selection = Double.parseDouble(selectionS);
                 valid = true; 
             }
-            catch(InputMismatchException ex){
-                System.out.println("Invalid- must enter a number");
-                keyboard.nextLine();
+            catch(IOException ex){
+                //System.out.println("Invalid- must enter a number");
+                this.console.println("Invalid- must enter a number");
             }
         }
         //return name

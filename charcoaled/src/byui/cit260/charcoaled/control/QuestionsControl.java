@@ -6,6 +6,9 @@
 package byui.cit260.charcoaled.control;
 
 import byui.cit260.charcoaled.exceptions.QuestionsControlException;
+import charcoaled.Charcoaled;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +16,9 @@ import java.util.ArrayList;
  * @author justdance2007
  */
 public class QuestionsControl {
+    protected final BufferedReader keyboard = Charcoaled.getInFile();
+    protected final PrintWriter console = Charcoaled.getOutFile();
+    
     ArrayList<Integer> tempList;
     
     public QuestionsControl() {
@@ -41,7 +47,8 @@ public class QuestionsControl {
         }
         else {                  
             double degreesCelsius = (fahrenheit-32) * 5/9; //find temperature in Celsius
-            System.out.println("The temperature in Celsius is: " + degreesCelsius);
+            Charcoaled.getOutFile().println("The temperature in Celsius is: " + degreesCelsius);
+            //System.out.println("The temperature in Celsius is: " + degreesCelsius);
             return degreesCelsius;
         }       
     }
@@ -59,9 +66,11 @@ public class QuestionsControl {
     }
     
     public void displayTempList() {
-        System.out.println("\nFind the average of the following temperatures:");
+        this.console.println("\nFind the average of the following temperatures:");
+        //System.out.println("\nFind the average of the following temperatures:");
         for (int temperature: tempList) {
-            System.out.println(temperature);
+            //System.out.println(temperature);
+            this.console.println(temperature);
         }
     }
     
