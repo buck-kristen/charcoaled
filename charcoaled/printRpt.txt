@@ -1,0 +1,8 @@
+View List of Resources
+
+Resources	Quantity
+rope		2
+axe		4
+water		3
+masterKey		1
+extinguisher		2
