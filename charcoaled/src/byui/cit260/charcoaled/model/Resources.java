@@ -11,7 +11,7 @@ package byui.cit260.charcoaled.model;
  */
 public enum Resources {
     rope,
-    fireExtinguisher,
+    extinguisher,
     axe,
     water,
     masterKey;

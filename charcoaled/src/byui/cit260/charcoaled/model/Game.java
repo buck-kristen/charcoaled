@@ -16,10 +16,25 @@ public class Game implements Serializable {
     private Player player; //create new player object in GameControl
     private Actor[] actors;
     private Map gameMap;
+    private Resource[] resources; 
     //private double totalTime;//should I include this since I don't want to use time in the game?
     
     // default constructor function
     public Game() {
+        resources = new Resource[5]; 
+        resources[0] = new Resource(Resources.rope, 2); 
+        resources[1] = new Resource(Resources.axe, 4); 
+        resources[2] = new Resource(Resources.water, 3); 
+        resources[3] = new Resource(Resources.masterKey, 1); 
+        resources[4] = new Resource(Resources.extinguisher, 2); 
+    }
+
+    public Resource[] getResources() {
+        return resources;
+    }
+
+    public void setResources(Resource[] resources) {
+        this.resources = resources;
     }
     
     //getter setter functions

@@ -10,8 +10,10 @@ import byui.cit260.charcoaled.control.QuestionsControl;
 import byui.cit260.charcoaled.exceptions.QuestionsControlException;
 import byui.cit260.charcoaled.model.Location;
 import byui.cit260.charcoaled.model.Map;
+import byui.cit260.charcoaled.model.Resource;
 import charcoaled.Charcoaled;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -60,6 +62,7 @@ public class MainMenuView extends View{
             "\nV - View items"+
             "\nI - Drop or Remove Inventory items"+
             "\nE - Enter Door"+
+            "\nP - Print Report"+
             "\nX - Exit to Main Menu"+
             "\n--------------------------------------";
     //displays the main menu and gets user input keys typed
@@ -207,7 +210,7 @@ public class MainMenuView extends View{
          selection = selection.trim();
          selection = selection.toUpperCase();
          //invalid if user enters  
-           if (!"UDLRVIEX".contains(selection.toUpperCase())) {
+           if (!"UDLRVIEPX".contains(selection.toUpperCase())) {
                //System.out.println("Invalid menu option.");
                this.console.println("Invalid menu option.");
                continue;  
@@ -241,6 +244,9 @@ public class MainMenuView extends View{
             break;
         case 'I': //drop or remove items
             this.removeItems();
+            break;
+        case 'P': //print report
+            this.printReport();
             break;
         case 'X': //Exit or Return to main menu
             return;
@@ -288,7 +294,12 @@ public class MainMenuView extends View{
          
          private void viewItems () {
             //System.out.println("viewItems function called");
-            this.console.println("viewItems function called");
+             Resource[] resources = Charcoaled.getCurrentGame().getResources(); 
+             
+             this.console.println("Resources\tQuantity");
+             for (int i = 0; i<resources.length; i++) {
+                 this.console.println(resources[i]);
+             }
         }
          private void removeItems () {
            // System.out.println("removeItems function called");
@@ -445,5 +456,25 @@ public String getSaveInput() {
         }
         //return name
         return selection;
+    }
+
+    private void printReport() {
+           String filePath = this.getSaveInput();
+                try {
+                   //save game to file
+                    PrintWriter out = new PrintWriter(filePath); 
+                    Resource[] resources = Charcoaled.getCurrentGame().getResources();
+                    
+                    out.println("View List of Resources\n");
+                    out.println("Resources\tQuantity");
+                    
+                    for (int i = 0; i<resources.length; i++) {
+                        out.println(resources[i]); 
+                    }
+                    out.close();
+                    this.console.println("A report has been saved to a file.");
+                } catch (Exception ex) {
+                    ErrorView.display("MainMenuView", ex.getMessage());
+                }
     }
 }
