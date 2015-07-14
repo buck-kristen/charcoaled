@@ -24,12 +24,10 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
             "\n|             Room Menu           |"+
              "\n--------------------------------------"+
             "\nU - Use an Item"+
-            "\nV - View items"+
-            "\nD - Drop items"+
-            "\nP - Pick up item"+
+            "\nV - Earn item"+
             "\nR - Rescue person"+
             "\nE - Exit the room"+
-            "\n--------------------------------------","UVDPRE");
+            "\n--------------------------------------","UVRE");
     questions = new QuestionsControl();
     }
     
@@ -78,13 +76,7 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
             this.useItem();
             break;
         case 'V': //view items
-            this.viewItems();
-            break;
-        case 'D': //drop items
-            this.dropItem();
-            break;
-        case 'P': //pick up item
-            this.pickItem();
+            this.earnItem();
             break;
      	case 'R': //rescue person
             this.rescue();
@@ -102,13 +94,9 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
             //System.out.println("useItem function called");
             this.console.println("useItem function called");
         }        
-        private void dropItem () {
-            //System.out.println("dropItem function called");
-            this.console.println("dropItem function called");
-        }
-        private void pickItem () {
-            //System.out.println("pickItem function called");
-            this.console.println("pickItem function called");
+        private void earnItem() {
+            //System.out.println("viewItems function called");
+            this.console.println("earnItem function called");
         }
         private void rescue () {
             //System.out.println("| Before you can save the victim, please answer the question |");
@@ -152,10 +140,6 @@ public class RoomMenuView extends View { //add extends View after RoomMenuView
                    break;
 
             }
-        }
-        private void viewItems() {
-            //System.out.println("viewItems function called");
-            this.console.println("viewItems function called");
         }
         
 }

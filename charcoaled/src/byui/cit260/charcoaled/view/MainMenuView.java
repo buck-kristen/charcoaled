@@ -46,7 +46,6 @@ public class MainMenuView extends View{
             "\n----------------------"+
             "\nO - Display game objective"+
             "\nM - Display how to move between doors and floors"+
-            "\nD - Difference in difficulty levels"+
             "\nQ - Quit and return to Main Menu"+
             "\n----------------------";
     
@@ -401,9 +400,6 @@ public String getSaveInput() {
         case 'M': //describe how player moves in game
             this.describePlayerMove();
             break;
-        case 'D': //describe difficulty level
-            this.describeDifficulty();
-            break;
         case 'Q': //Exit or Return
             return;
         default:
@@ -413,19 +409,15 @@ public String getSaveInput() {
     }
     }
     //help menu stub function created
-    private void describeDifficulty() {
-        //System.out.println("describeDifficulty function called");
-        this.console.println("describeDifficulty function called");
-    }
 
     private void describePlayerMove() {
         //System.out.println("describePlayerMove function called");
-        this.console.println("describePlayerMove function called");
+        this.console.println("\n*** To move player on board simply follow prompts of menu typing in either U,D,L,R. ***");
     }
 
     private void displayGameObjective() {
         //System.out.println("displayGameObjective function called");
-        this.console.println("displayGameObjective function called");
+        this.console.println("\n*** The objective of this game is to save as many people as possible before reaching the end of the game. ***");
     }
   
     //view 2 for individual wk7 response to Enter door in game map menu
