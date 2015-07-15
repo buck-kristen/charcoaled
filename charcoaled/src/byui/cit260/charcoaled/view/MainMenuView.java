@@ -257,20 +257,48 @@ public class MainMenuView extends View{
     }
         //created stub functions for game map menu
         private void moveUp () {
-            //System.out.println("moveUp function called");
-            this.console.println("moveUp function called");
+            int column = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getRow());
+            column = column - 1; 
+                if (column < 0 ) {
+                    this.console.println("Player cannot move up.\n");
+             
+                }
+                else {
+                    Charcoaled.getCurrentGame().getGameMap().setRow(Integer.toString(column));
+                }
         }        
         private void moveLeft () {
-            //System.out.println("moveLeft function called");
-            this.console.println("moveLeft function called");
+            int column = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getColumn());
+            column = column - 1; 
+                if (column < 0 ) {
+                    this.console.println("Player cannot move left.\n");
+             
+                }
+                else {
+                    Charcoaled.getCurrentGame().getGameMap().setColumn(Integer.toString(column));
+                }
         }
         private void moveDown () {
-            //System.out.println("moveDown function called");
-            this.console.println("moveDown function called");
+            int column = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getRow());
+            column = column + 1; 
+                if (column > 4 ) {
+                    this.console.println("Player cannot move down.\n");
+             
+                }
+                else {
+                    Charcoaled.getCurrentGame().getGameMap().setRow(Integer.toString(column));
+                }
         }
         private void moveRight () {
-            //System.out.println("moveRight function called");
-            this.console.println("moveRight function called");
+         int column = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getColumn());
+            column = column + 1; 
+                if (column > 4 ) {
+                    this.console.println("Player cannot move right.\n");
+             
+                }
+                else {
+                    Charcoaled.getCurrentGame().getGameMap().setColumn(Integer.toString(column));
+                }
         }
         //View 2 action if E is entered from game map menu
         private void enterDoor () {
@@ -289,6 +317,10 @@ public class MainMenuView extends View{
                 //display room menu
                 RoomMenuView roomMenu = new RoomMenuView();
                 roomMenu.display();
+        int column = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getColumn());
+        int row = Integer.parseInt(Charcoaled.getCurrentGame().getGameMap().getRow());
+        Location[][] locations = Charcoaled.getCurrentGame().getGameMap().getLocations();
+        locations[row][column].setVisited(true);
         }
          
          private void viewItems () {

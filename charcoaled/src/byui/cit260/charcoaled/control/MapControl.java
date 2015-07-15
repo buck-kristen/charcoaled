@@ -43,6 +43,10 @@ public class MapControl {
                     location.setColumn(Integer.toString(c));
                     location.setVisited(false);
                     
+                    Scene scene = new Scene();
+                    scene.setSymbol(" # ");
+            
+                    location.setScene(scene);
                     //place in array
                     locations[r][c] = location;
                 }
